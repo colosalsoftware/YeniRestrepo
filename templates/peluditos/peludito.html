@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+	
+{% block content %}
+<div  class="menuprincipal">
+
+
+<div id="servicios" style="height: auto;width: 100%;justify-content: center;">
+    <img src="{% static 'img/titulos/titulo_adopta.png' %}"style="width: 100%;">
+</div>
+<div id="Admins" class="container-fluid " style=" padding: 40px;">
+    <div class="row">
+        <!-- Columna 1 -->
+        {% for peludito in peluditos %}
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card" style="justify-content: center; display: flex;align-items: center;text-align: center;padding: 20px;height: auto;">
+                <img src="{{ peludito.foto.url }}" class="card-img-top" alt="Imagen 1" style="width: 80%;max-height: 300px;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ peludito.nombre }}</h5>
+                    <p class="card-text"><b>Edad:</b> {{ peludito.edad }}<br>
+                        <b>Raza:</b> {{ peludito.raza }}<br>
+                        <b>Tamaño:</b> {{ peludito.tamaño }}</p>
+                    
+                    <p class="card-text">{{ peludito.descripcion }}</p>
+                    <div class="text-center" style="margin-top: 20px;">
+                        <a class="btn btn-success" style="margin: 0 10px; font-size: 22px;color: white;" id="rentar" href="https://api.whatsapp.com/send?phone=573113014351&text=Hola%20Espacio%20Elite%20,%20Estoy%20muy%20interesad@%20en%20la%20propiedad%20{{ mensaje }}">¡Lo Quiero!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock %}

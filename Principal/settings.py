@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'Mision_Animal',
     'Negocios',
+    'Agenda',
+    'Noticias',
 ]
 
 MIDDLEWARE = [

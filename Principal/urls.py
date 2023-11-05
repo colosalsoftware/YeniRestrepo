@@ -24,4 +24,8 @@ from django.conf import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.inicio,name="inicio"),
+    path("peluditos/", views.peluditos,name="peluditos"),
+    path("negocios/", views.negocios,name="negocios"),
+    path("noticias/", views.noticias_view,name="noticias"),
+    path('<int:noticia_id>/', views.noticias_view, name='noticia_detalle'),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

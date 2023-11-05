@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+	
+{% block content %}
+<div  class="menuprincipal">
+
+    <div id="servicios" style="height: auto;width: 100%;justify-content: center;">
+        <img src="{% static 'img/titulos/titulo_negocios.png' %}"style="width: 100%;">
+    </div>
+<div id="Admins" class="container-fluid menuprincipal" style=" padding: 40px;">
+    <img src="img/titulos/titulo_admin.png" style="width: 80%;margin-left: 10%;margin-bottom: 50px;">
+    <div class="row">
+        <!-- Columna 1 -->
+        {% for negocio in negocios %}
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card" style="justify-content: center; display: flex;align-items: center;text-align: center;padding: 20px;height: auto;">
+                <img src="{{ negocio.Logo.url }}" class="card-img-top" alt="Imagen 1" style="width: 50%;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ negocio.nombre }}</h5>
+                    <p class="card-text">{{ negocio.descripcion }}</p>
+                    <div class="text-center" style="margin-top: 20px;">
+                        <a class="btn btn-warning" style="margin: 0 10px; font-size: 22px;color: black;" id="rentar" href="{{ negocio.pagina_web }}">Visitar Sitio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock %}

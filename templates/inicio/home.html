@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+	
+{% block content %}
+
+
+<div class="container-fluid" style="margin: 0px;padding: 0px;">
+    <img src="{% static 'img/banner/banner.png'%}" style="width: 100%;">
+</div>
+<div class="container-fluid menuprincipal" >
+    <div class="row" style="padding-top: 20px;padding-right: 10px;padding-left: 10px;padding-bottom: 20px;">
+        <div class="col-4" style="padding: 10px;">
+            <div class="botones">
+                <a href="https://chat.whatsapp.com/LSc6febyIm7EY0qb21JxrU">
+                    <img src="{% static '/img/iconos/quien.png'%}" alt="Quién es Yeni" width="100%"></a>
+            </div>
+        </div>
+        <div class="col-4" style="padding: 10px;">
+            <div class="botones">
+                <a href="{% url 'peluditos'%}">
+                    <img src="{% static '/img/iconos/adopta.png'%}" alt="adopta un peludito" width="100%"></a>
+            </div>
+        </div>
+        <div class="col-4" style="padding: 10px;">
+            <div class="botones">
+                <a href="{% url 'negocios'%}">
+                    <img src="{% static '/img/iconos/negocios.png'%}" alt="Mis Negocios" width="100%"></a>
+            </div>
+        </div>
+        <div class="col-4" style="padding: 10px;">
+            <div class="botones">
+            <a href="https://chat.whatsapp.com/HTGFcjkkmM5DJ0P7xQwSyW"> 
+                <img src="{% static '/img/iconos/galeria.png'%}" alt="Galería" width="100%"></a>
+            </div>
+        </div>
+        <div class="col-4" style="padding: 10px;">
+            <div class="botones">
+                <a href="{% url 'noticias' %}">    
+                    <img src="{% static '/img/iconos/noticias.png'%}" alt="Noticias" width="100%">
+                </a>
+            </div>
+        </div>
+        <div class="col-4" style="padding: 10px;">
+            <div class="botones">
+            <a href="https://chat.whatsapp.com/BuYPiHPOytq9exSckD3lzr">
+                <img src="{% static '/img/iconos/contacto.png'%}" alt="Contacto" width="100%">
+            </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid principalabajo" style="margin: 0px;padding: 20px;">
+    <h1 style="text-align: center;width: 100%;"> <br>Agenda de Eventos</h1>
+    <br>
+    <div class="table-responsive tabla-agenda" style="border-radius: 20px;background-color: #E6E6E6;">
+        <table id="tablaEventos" class="table table-light table-hover" style="font-size: 15px;">
+            <thead class="bg-dark" style="color: white;">
+                <tr style="border-radius: 20px;">
+                    <th>Fecha</th>
+                    <th>Evento</th>
+                    <th>Descripción</th>
+                    <th>Lugar de Encuentro</th>
+                    <th>Ubicación</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for evento in eventos %}
+                <tr >
+                    
+                    <td>{{ evento.fecha }}</td>
+                    <td>{{ evento.nombre_del_evento }}</td>
+                    <td>{{ evento.descripcion }}</td>
+                    <td>{{ evento.lugar }}</td>
+                    <td ><a href="{{ evento.link_maps|safe }}">Ver Mapa...</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

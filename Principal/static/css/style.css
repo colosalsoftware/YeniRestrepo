@@ -12,37 +12,118 @@ body {
       left: -100px; /* Empieza fuera de la pantalla a la izquierda */
     }
     100% {
+      left: 160%; /* Termina fuera de la pantalla a la derecha */    
+    }
+}
+
+.moving-image1 {
+    position: absolute;
+    animation: moveImage1 10s linear infinite;
+}
+
+@keyframes moveImage1 {
+    0% {
+      left: -300px; /* Empieza fuera de la pantalla a la izquierda */
+    }
+    100% {
+      left: 110%; /* Termina fuera de la pantalla a la derecha */    
+    }
+}
+
+.logoprincipal{
+    width: 140px;
+}
+.moving-image2 {
+    position: absolute;
+    animation: moveImage2 10s linear infinite;
+}
+
+@keyframes moveImage2 {
+    0% {
+      left: -500px; /* Empieza fuera de la pantalla a la izquierda */
+    }
+    100% {
       left: 100%; /* Termina fuera de la pantalla a la derecha */    
     }
 }
-@media (max-width: 768px) {
-    .moving-image {
-        animation: moveImage 5s linear infinite;
-    }
-}
+
 .botones {
-	border-radius: 10px;
+    border-radius: 20px;
     color: white;
-    background-color: rgb(0, 0, 0,0.4);
+    background-color: #E6E6E6;
     text-align: center;
     text-decoration: none;
-    padding: 10px;
-    height: 150px;
+    height: 200px;
     display: flex; /* Activar el modelo de caja Flex */
     justify-content: center; /* Centrar horizontalmente */
     align-items: center; /* Centrar verticalmente */
-    transition: background-color 0.3s; /* Transición suave del color de fondo */
+    transition: background-color 0.3s;
+    transition: box-shadow 0.3s; /* Transición suave del color de fondo */
 }
 
+
 .botones:hover {
-    background-color: #F37921; /* Cambiar el color de fondo al pasar el mouse */
+    background-color: #00931F; /* Cambiar el color de fondo al pasar el mouse */
 }
 
 .botones a {
     color: white;
     text-align: center;
     text-decoration: none;
-    vertical-align: center; /* Esto no es necesario */
+    vertical-align: top; /* Esto no es necesario */
     padding: 10px;
 	font-weight: bolder;
+}
+.botones img{
+    width: 80%;
+    max-height: 180px;
+    border-radius: 5px;
+}
+
+.botones img:hover{
+    box-shadow: 0 0 30px rgba(0, 0, 0, 1);
+}
+.menuprincipal{
+    background-image: url(../img/includes/fondo_sección_iconos.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.principalabajo{
+    background-image: url(../img/includes/fondo_sección_Agenda.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#derechosreservados{
+    width: 60%;
+}
+.tabla-agenda{
+    padding-top: 25px; 
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+@media (max-width: 768px) {
+    .moving-image {
+        animation: moveImage 5s linear infinite;
+    }
+    .moving-image1 {
+        animation: moveImage1 5s linear infinite;
+    }
+    .moving-image2 {
+        animation: moveImage2 5s linear infinite;
+    }
+    
+    .logoprincipal{
+        width: 120px;
+    }
+    #derechosreservados{
+        width: 80%;
+    }
+    
+    .tabla-agenda{
+        padding-top: 25px; 
+        padding-bottom: 25px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }

@@ -1,0 +1,47 @@
+
+{% extends 'base.html' %}
+{% load static %}
+	
+{% block content %}
+<div  class="menuprincipal">
+
+<div id="servicios" style="height: auto;width: 100%;justify-content: center;">
+    <img src="{% static 'img/titulos/titulo_noticias.png' %}"style="width: 100%;">
+</div>
+<div class="container" style="padding: 20px;">
+    <p style="justify-content: center;text-align: justify;font-size: 22px;margin-top: 30px;">
+        ¿Quieres estar siempre informado sobre lo que estamos haciendo? ¡Estás en el lugar correcto!
+    </p>
+    <!-- Sección de la noticia seleccionada -->
+    {% if noticia_seleccionada %}
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>{{ noticia_seleccionada.titulo }}</h2>
+                <p>{{ noticia_seleccionada.fecha_publicacion|date:"d/m/Y" }}</p>
+                <img src="{{ noticia_seleccionada.imagen.url }}" alt="{{ noticia_seleccionada.titulo }}" class="img-fluid" style="width: auto; max-height: 500px;">
+                <p style="justify-content: center;text-align: justify;font-size: 22px;margin-top: 30px;">{{ noticia_seleccionada.contenido|safe }}</p>
+            </div>
+        </div>
+    {% endif %}
+
+    <!-- Lista de noticias -->
+    <div class="row justify-content-center" style="margin-top: 50px;">
+        {% for noticia in noticias %}
+        <div class="col-lg-4 col-md-4 col-sm-4 d-flex justify-content-center" style="margin-bottom: 40px;">
+            <div class="card" style="width: 300px;">
+                <a href="{% url 'noticia_detalle' noticia.id %}">
+                    <img src="{{ noticia.imagen.url }}" alt="{{ noticia.titulo }}" class="card-img-top" style="width: 100%; height: 250px;">
+                </a>
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ noticia.titulo }}</h5>
+                    <p class="card-text">{{ noticia.fecha_publicacion|date:"d/m/Y" }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+</div>
+</div>
+
+{% endblock %}
